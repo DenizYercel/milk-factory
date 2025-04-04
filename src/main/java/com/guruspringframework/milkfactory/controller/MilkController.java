@@ -26,7 +26,7 @@ public class MilkController {
     }
 
     @PostMapping
-    public ResponseEntity handlePost(MilkDto milkDto) {
+    public ResponseEntity handlePost(@RequestBody MilkDto milkDto) {
         MilkDto savedDto = milkService.saveNewMilk(milkDto);
 
         HttpHeaders headers = new HttpHeaders();
@@ -35,4 +35,15 @@ public class MilkController {
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
+    @PutMapping("/{milkId}")
+    public ResponseEntity handleUpdate(@PathVariable("/milkId") UUID milkId,@RequestBody  MilkDto milkDto) {
+        milkService.updateMilk(milkId,milkDto);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/{milkId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteMilk(@PathVariable("milkId") UUID milkId) {
+        milkService.deleteById(milkId);
+    }
 }

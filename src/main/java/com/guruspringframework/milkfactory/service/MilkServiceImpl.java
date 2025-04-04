@@ -1,11 +1,12 @@
 package com.guruspringframework.milkfactory.service;
 
 import com.guruspringframework.milkfactory.web.model.MilkDto;
-import org.springframework.http.ResponseEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class MilkServiceImpl implements MilkService {
     @Override
@@ -21,6 +22,16 @@ public class MilkServiceImpl implements MilkService {
         return MilkDto.builder()
                 .id(UUID.randomUUID())
                 .build();
+    }
+
+    @Override
+    public void updateMilk(UUID milkId, MilkDto milkDto) {
+
+    }
+
+    @Override
+    public void deleteById(UUID milkId) {
+        log.debug("Deleting milk with id {}", milkId);
     }
 
 

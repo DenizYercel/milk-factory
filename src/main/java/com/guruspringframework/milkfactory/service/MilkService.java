@@ -12,4 +12,8 @@ public interface MilkService {
 
     MilkDto saveNewMilk(MilkDto milkDto);
 
+    void updateMilk(UUID milkId, MilkDto milkDto);
+
+    void deleteById(UUID milkId);
+
 }
