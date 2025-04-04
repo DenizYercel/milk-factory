@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -15,7 +17,15 @@ import java.util.UUID;
 public class MilkDto {
 
     private UUID id;
+    private Integer version;
+
+    private OffsetDateTime createdDate;
+    private OffsetDateTime lastModifiedDate;
+
     private String milkName;
-    private String milStyle;
+    private MilkStyleEnum milStyle;
     private Locale upc;
+
+    private BigDecimal price;
+    private Integer quantityOnHand;
 }
