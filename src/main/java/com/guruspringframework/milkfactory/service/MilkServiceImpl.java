@@ -1,6 +1,7 @@
 package com.guruspringframework.milkfactory.service;
 
 import com.guruspringframework.milkfactory.web.model.MilkDto;
+import com.guruspringframework.milkfactory.web.model.MilkStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class MilkServiceImpl implements MilkService {
     public MilkDto getMilkById(UUID milkId) {
         return MilkDto.builder().id(UUID.randomUUID())
                 .milkName("Sutas")
-                .milStyle("100ml")
+                .milStyle(MilkStyleEnum.GOAT)
                 .build();
     }
 
